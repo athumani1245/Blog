@@ -2,7 +2,7 @@
 <div class="sidebar col-md-4">
   <div class="recent-posts pt-5">
     <h4 class="mb-3">RECENT POSTS</h4>
-    {% for latest in post %}
+    {% for latest in post|slice:":3" %}
     <div class="post-item">
       <a href="{{ latest.get_url }}" class="post-title">{{ latest.heading }}</a>
       <div class="post-meta">
@@ -14,7 +14,7 @@
     <a class="main-button" href="{% url 'home' %}">View all posts</a>
     <div class="popular pt-5">
       <h4 class="mb-3">READ MOST POPULAR ARTICLES</h4>
-      {% for latest in post %}
+      {% for latest in post|slice:":4" %}
       <div class="card bg-dark text-white">
         <img src="{{ latest.title_image.url }}" class="card-img" alt="...">
         <div class="card-img-overlay p-3">
@@ -24,7 +24,7 @@
           <div class="card-text article-meta">
             <span><i class="far fa-calendar"></i> {{ latest.date_posted }}</span><span><i class="far fa-bookmark"></i> {{ latest.post_category }}</span>
           </div>
-          <button class="card-button">Read article</button>
+          <button class="card-button">Read more...</button>
           </div>
         </div>
       </div>

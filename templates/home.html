@@ -7,7 +7,7 @@
           <div class="row mainmargin">
             <div class="blog col-md-8">
               <div class="all-posts">
-                {% for post in news %}
+                {% for post in news|slice:":5" %}
                 <div class="post-item">
                   {% if post.title_image %}
                   <div class="post-img"><img src="{{ post.title_image.url }}" alt=""></div>
